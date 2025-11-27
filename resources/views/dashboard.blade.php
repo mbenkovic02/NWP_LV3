@@ -14,4 +14,35 @@
             </div>
         </div>
     </div>
+
+    <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-2">Projekti koje vodim</h2>
+    <ul class="list-disc ml-6">
+        @forelse ($projectsLed as $project)
+            <li>
+                <a href="{{ route('projects.show', $project) }}" class="text-blue-500 underline">
+                    {{ $project->naziv_projekta }}
+                </a>
+            </li>
+        @empty
+            <li>Još ne vodiš nijedan projekt.</li>
+        @endforelse
+    </ul>
+</div>
+
+<div class="mt-8">
+    <h2 class="text-xl font-semibold mb-2">Projekti na kojima sam član</h2>
+    <ul class="list-disc ml-6">
+        @forelse ($projectsMember as $project)
+            <li>
+                <a href="{{ route('projects.show', $project) }}" class="text-blue-500 underline">
+                    {{ $project->naziv_projekta }}
+                </a>
+            </li>
+        @empty
+            <li>Nisi član ni jednog projekta.</li>
+        @endforelse
+    </ul>
+</div>
+
 </x-app-layout>
